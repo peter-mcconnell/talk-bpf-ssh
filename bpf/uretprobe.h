@@ -1,5 +1,5 @@
-#ifndef __EVENT_H__
-#define __EVENT_H__
+#ifndef __URETPROBE_H__
+#define __URETPROBE_H__
 
 typedef struct _event_t {
     int  pid;
@@ -8,6 +8,7 @@ typedef struct _event_t {
     char password[80];
 } event_t;
 
+// TODO: import?
 typedef struct pam_handle
 {
   char *authtok;

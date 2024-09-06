@@ -23,3 +23,5 @@ go.work
 bin/*
 
 bpf/headers/vmlinux.h
+
+.ccls-cache

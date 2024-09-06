@@ -15,7 +15,7 @@ struct
 } rb SEC(".maps");
 
 
-const struct event *unused __attribute__((unused));
+const struct event *unused;
 
 SEC("uretprobe/pam_get_authtok")
 int trace_pam_get_authtok(struct pt_regs *ctx)
@@ -32,6 +32,9 @@ int trace_pam_get_authtok(struct pt_regs *ctx)
 
   u64 username_addr = 0;
   bpf_probe_read(&username_addr, sizeof(username_addr), &phandle->user);
+
+  if (!password_addr || !username_addr)
+    return 0;
 
   event_t *e;
   e = bpf_ringbuf_reserve(&rb, sizeof(*e), 0);

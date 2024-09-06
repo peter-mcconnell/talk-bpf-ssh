@@ -1,7 +1,6 @@
 FROM ubuntu:22.04 AS base
-ARG KERNEL
 RUN apt-get update -yq && \
-		apt-get install -yq curl git make clang llvm linux-headers-$(KERNEL) libbpf-dev
+		apt-get install -yq curl git make clang llvm linux-headers-6.5.0-1016-aws libbpf-dev
 ARG GOARCH
 ENV GOARCH=$GOARCH
 RUN curl -O -L https://go.dev/dl/go1.22.2.linux-${GOARCH}.tar.gz && \
