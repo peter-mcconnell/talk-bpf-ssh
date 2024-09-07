@@ -8,7 +8,6 @@ typedef struct _event_t {
     char password[80];
 } event_t;
 
-// TODO: import?
 typedef struct pam_handle
 {
   char *authtok;
@@ -18,13 +17,6 @@ typedef struct pam_handle
   char *prompt;
   char *service_name;
   char *user;
-  char *rhost;
-  char *ruser;
-  char *tty;
-  char *xdisplay;
-  char *authtok_type;
-  void *data;
-  void *env;
 } pam_handle_t;
 
 #endif
